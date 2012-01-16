@@ -57,4 +57,9 @@ BaseOw::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  #Added to make activeadmin gem work with Rails >= 3.1
+  config.assets.precompile += %w[active_admin.css active_admin.js]
+  #config.assets.precompile = false
+  
 end
