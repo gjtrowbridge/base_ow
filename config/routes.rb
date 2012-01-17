@@ -1,4 +1,6 @@
 BaseOw::Application.routes.draw do
+  resources :activities
+
   get "pages/home"
 
   ActiveAdmin.routes(self)
