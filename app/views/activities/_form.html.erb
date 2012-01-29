@@ -1,35 +1,28 @@
 <%= simple_form_for(@activity) do |f| %>
-  <%= f.error_notification %>
-
-<div class="activity basic">
-	<h2>Basic</h2>
-  <div class="inputs">
-    <%= f.input :name, :placeholder => 'City Basketball League' %>
-  </div>
-</div>
-
-<div class="activity tags">
-	<h2>Tags</h2>
-  <div class="inputs">
-    
-  </div>
-</div>
-
-<div class="activity logistics">
-	<h2>Logistics</h2>
-  <div class="inputs">
-    
-  </div>
-</div>
-
-<div class="activity pictures">
-	<h2>Pictures</h2>
-  <div class="inputs">
-    
-  </div>
-</div>
-
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+	There are <%= @activity.locations.count %> locations
+	<!-- Activity Basic Info -->
+	<section class="basic activity">
+		<h2>Basic</h2>
+	  <%= f.input :name, :placeholder => 'City Basketball League' %>
+	</section>
+  
+  <!-- Location Info -->
+  <section class="locations activity">
+  	<h2>Location</h2>
+	  <%= f.simple_fields_for :locations do |builder| %>
+	  	<%= render(:partial => 'locations/form', :locals => { :f => builder } )%>
+	  <% end %>
+  </section>
+  
+  <!-- Cost Info -->
+  <section class="costs activity">
+  	<h2>Cost</h2>
+  </section>
+  
+  <!-- Schedule Info -->
+  <section class="schedule activity">
+  	<h2>Schedule</h2>
+  </section>
+  	
+  <%= f.button :submit, :wrapper_html => { :class => 'actions' } %>
 <% end %>
