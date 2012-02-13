@@ -9,7 +9,7 @@ gem 'mysql'
 gem 'simple_form'
 gem 'activeadmin'
 gem 'meta_search', '>=1.1.0.pre'
-gem 'nested_form'
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
