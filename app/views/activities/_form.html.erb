@@ -1,5 +1,5 @@
 <%= simple_nested_form_for(@activity) do |f| %>
-	There are <%= @activity.locations.count %> locations
+
 	<!-- Activity Basic Info -->
 	<section class="basic activity">
 		<h2>Basic</h2>
@@ -12,6 +12,7 @@
 	  <%= f.simple_fields_for :locations do |builder| %>
 	  	<%= render(:partial => 'locations/form', :locals => { :f => builder } )%>
 	  <% end %>
+	  <p><%= f.link_to_add "Add a location", :locations %></p>
   </section>
   
   <!-- Cost Info -->
@@ -24,5 +25,20 @@
   	<h2>Schedule</h2>
   </section>
   	
+  <!-- More Info (Links) -->
+  <section class="additional_links activity">
+  	<h2>Additional Links</h2>
+  </section>
+  
+  <!-- Parent Activity -->
+  <section class="parent activity">
+  	<h2>Parent Activities</h2>
+  </section>
+  
+  <!-- Sub Activities -->
+  <section class="sub activity">
+  	<h2>Sub-Activities</h2>
+  </section>
+  
   <%= f.button :submit, :wrapper_html => { :class => 'actions' } %>
 <% end %>
