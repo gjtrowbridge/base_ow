@@ -5,6 +5,14 @@
   <%= @activity.name %>
 </p>
 
+<!-- Location Info -->
+  <section class="locations activity">
+  	<h2>Location</h2>
+	  <% for location in @activity.locations %>
+			<%= render(:partial => 'locations/show', :locals => { :object => location }  )%>
+		<% end %>
+  </section>
+
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Back', activities_path %>
